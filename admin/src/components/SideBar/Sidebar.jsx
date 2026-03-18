@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
-function sidebar() {
+function Sidebar() {
     const location = useLocation();
 
     return (
@@ -26,7 +26,7 @@ function sidebar() {
             <nav className="mt-4 px-3 space-y-1">
 
                 {/* ===== DASHBOARD ===== */}
-                <sidebarItem
+                <SidebarItem
                     to="/"
                     icon={LayoutDashboard}
                     label="Dashboard"
@@ -38,7 +38,7 @@ function sidebar() {
                     User Management
                 </div>
 
-                <sidebarItem
+                <SidebarItem
                     to="/accounts"
                     icon={Users}
                     label="Accounts"
@@ -50,35 +50,35 @@ function sidebar() {
                     Inventory
                 </div>
 
-                <sidebarItem
+                <SidebarItem
                     to="/categories"
                     icon={Layers}
                     label="Categories"
                     active={location.pathname.startsWith("/categories")}
                 />
 
-                <sidebarItem
+                <SidebarItem
                     to="/brands"
                     icon={Tag}
                     label="Brands"
                     active={location.pathname.startsWith("/brands")}
                 />
 
-                <sidebarItem
+                <SidebarItem
                     to="/suppliers"
                     icon={Truck}
                     label="Suppliers"
                     active={location.pathname.startsWith("/suppliers")}
                 />
 
-                <sidebarItem
+                <SidebarItem
                     to="/products"
                     icon={Package}
                     label="Products"
                     active={location.pathname.startsWith("/products")}
                 />
 
-                <sidebarItem
+                <SidebarItem
                     to="/inventories"
                     icon={Boxes}
                     label="Inventories"
@@ -90,7 +90,7 @@ function sidebar() {
                     Organization
                 </div>
 
-                <sidebarItem
+                <SidebarItem
                     to="/branches"
                     icon={Store}
                     label="Branches"
@@ -102,7 +102,7 @@ function sidebar() {
                     Activity Logs
                 </div>
 
-                <sidebarItem
+                <SidebarItem
                     to="/activity"
                     icon={FileText}
                     label="Activity Logs"
@@ -110,7 +110,7 @@ function sidebar() {
                 />
 
                 {/* ===== SETTINGS ===== */}
-                <sidebarItem
+                <SidebarItem
                     to="/settings"
                     icon={Settings2}
                     label="Settings"
@@ -122,7 +122,7 @@ function sidebar() {
     );
 }
 
-function sidebarItem({ icon: Icon, label, active, to }) {
+function SidebarItem({ icon: Icon, label, active, to }) {
     return (
         <Link
             to={to}
@@ -143,4 +143,4 @@ function sidebarItem({ icon: Icon, label, active, to }) {
     );
 }
 
-export default sidebar;
+export default Sidebar;
