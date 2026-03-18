@@ -17,7 +17,7 @@ const userBranchSchema = new mongoose.Schema(
       enum: ["branch_manager", "staff"],
       required: true,
     },
-   
+
   },
   { timestamps: true }
 );
