@@ -1,5 +1,5 @@
 import Log from "../../models/Log.js";
-import UserBranch from "../../models/UserBranches.js";
+import UserBranch from "../../models/userBranches.js";
 
 import mongoose from "mongoose";
 

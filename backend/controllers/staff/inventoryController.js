@@ -1,5 +1,5 @@
 import Inventory from "../../models/Inventories.js";
-import UserBranch from "../../models/UserBranches.js";
+import UserBranch from "../../models/userBranches.js";
 
 export const getAll = async (req, res) => {
   try {
