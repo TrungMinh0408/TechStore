@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Log from "../../models/Log.js";
-import UserBranch from "../../models/userBranches.js";
+import UserBranch from "../../models/UserBranches.js";
 export const auditLogs = async (req, res) => {
   try {
     const {
@@ -12,7 +12,7 @@ export const auditLogs = async (req, res) => {
     } = req.query;
 
     const filter = {
-      action: { $ne: "LOGIN" } 
+      action: { $ne: "LOGIN" }
     };
 
     if (branchId) filter.branchId = branchId;

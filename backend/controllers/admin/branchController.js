@@ -3,29 +3,29 @@ import UserBranch from "../../models/UserBranches.js";
 import mongoose from "mongoose";
 
 export const create = async (req, res) => {
-  const session = await mongoose.startSession();
-  session.startTransaction();
-  try {
-    const { name, code, address, phone } = req.body;
-    const existed = await Branch.findOne({ code });
-    if (existed) return res.status(400).json({ message: "Code đã tồn tại" });
-    const branch = await Branch.create(
-      [{ name, code, address, phone }],
-      { session }
-    );
+    const session = await mongoose.startSession();
+    session.startTransaction();
+    try {
+        const { name, code, address, phone } = req.body;
+        const existed = await Branch.findOne({ code });
+        if (existed) return res.status(400).json({ message: "Code đã tồn tại" });
+        const branch = await Branch.create(
+            [{ name, code, address, phone }],
+            { session }
+        );
 
-    await session.commitTransaction();
-    res.status(201).json({
-      message: "Succeccfully created branch",
-      branch: branch[0]
-    });
+        await session.commitTransaction();
+        res.status(201).json({
+            message: "Succeccfully created branch",
+            branch: branch[0]
+        });
 
-  } catch (err) {
-    await session.abortTransaction();
-    res.status(500).json({ message: err.message });
-  } finally {
-    session.endSession();
-  }
+    } catch (err) {
+        await session.abortTransaction();
+        res.status(500).json({ message: err.message });
+    } finally {
+        session.endSession();
+    }
 };
 
 export const getAllBranch = async (req, res) => {
@@ -33,9 +33,9 @@ export const getAllBranch = async (req, res) => {
         const branches = await Branch.find().sort({ createdAt: -1 }).lean();
 
         const result = await Promise.all(branches.map(async (b) => {
-            const managerRel = await UserBranch.findOne({ 
-                branchId: b._id, 
-                role: "branch_manager" 
+            const managerRel = await UserBranch.findOne({
+                branchId: b._id,
+                role: "branch_manager"
             }).populate("userId", "name email phone avatar");
 
             return {
@@ -86,8 +86,8 @@ export const update = async (req, res) => {
         if (!mongoose.Types.ObjectId.isValid(id))
             return res.status(400).json({ message: "ID chi nhánh không hợp lệ" });
 
-        const branch = await Branch.findByIdAndUpdate(id, updateData, { 
-            new: true, session 
+        const branch = await Branch.findByIdAndUpdate(id, updateData, {
+            new: true, session
         });
 
         if (managerId) {

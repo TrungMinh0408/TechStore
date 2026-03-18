@@ -1,4 +1,4 @@
-import UserBranch from "../../models/userBranches.js";
+import UserBranch from "../../models/UserBranches.js";
 import mongoose from "mongoose";
 
 
@@ -61,7 +61,7 @@ export const getBranchPersonnel = async (req, res) => {
     const { branchId } = req.params;
 
     const personnel = await UserBranch.find({ branchId })
-      .populate("userId", "name email avatar") 
+      .populate("userId", "name email avatar")
       .sort({ role: 1 });
 
     res.status(200).json(personnel);
@@ -73,7 +73,7 @@ export const getBranchPersonnel = async (req, res) => {
 
 export const removeFromBranch = async (req, res) => {
   try {
-    const { id } = req.params; 
+    const { id } = req.params;
     await UserBranch.findByIdAndDelete(id);
     res.status(200).json({ message: "Đã xóa nhân sự khỏi chi nhánh" });
   } catch (error) {
