@@ -9,7 +9,7 @@ import Login from "./pages/Login/Login";
 import ForgotPassword from "./pages/Login/ForgotPassword";
 import ResetPassword from "./pages/Login/ResetPassword";
 
-import Sidebar from "./components/Sidebar/Sidebar";
+import Sidebar from "./components/Sidebar/Sidebar.jsx";
 import Settings from "./components/Settings/Settings";
 
 import Pos from "./pages/Pos/Pos";
