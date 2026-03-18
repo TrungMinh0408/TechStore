@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 import NotFound from "../ultis/NotFound.jsx";
-import SideBar from "./components/SideBar/Sidebar";
+import sidebar from "./components/sidebar/sidebar";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./pages/Login.jsx";
 
@@ -60,7 +60,7 @@ import BranchPersonnelUpdate from "./pages/User/update.jsx";
 /* ================= Layout ================= */
 const Layout = ({ children }) => (
   <div className="flex min-h-screen bg-slate-50 dark:bg-slate-950">
-    <SideBar />
+    <sidebar />
     <div className="flex-1 flex flex-col">
       <Navbar />
       <main className="min-h-screen bg-white p-4 lg:p-8">

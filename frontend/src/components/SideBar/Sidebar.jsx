@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
-export default function Sidebar({ isOpen, setIsOpen }) {
+export default function sidebar({ isOpen, setIsOpen }) {
 
     const location = useLocation();
 

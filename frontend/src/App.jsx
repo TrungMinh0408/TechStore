@@ -9,7 +9,7 @@ import Login from "./pages/Login/Login";
 import ForgotPassword from "./pages/Login/ForgotPassword";
 import ResetPassword from "./pages/Login/ResetPassword";
 
-import Sidebar from "./components/SideBar/sidebar";
+import sidebar from "./components/sidebar/sidebar";
 import Settings from "./components/Settings/Settings";
 
 import Pos from "./pages/Pos/Pos";
@@ -34,7 +34,7 @@ import "react-toastify/dist/ReactToastify.css";
 /* ================= Layout ================= */
 const Layout = ({ children }) => (
   <div className="flex min-h-screen bg-app-bg">
-    <Sidebar />
+    <sidebar />
     <div className="flex-1 min-w-0 overflow-x-hidden p-6">
       {children}
     </div>
